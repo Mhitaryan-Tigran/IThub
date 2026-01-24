@@ -16,7 +16,7 @@ correct_answers = ['A', 'C', 'B', 'B', 'A', 'C', 'B', 'A', 'A', 'B']
 score = 0
 for i, q in enumerate(questions, 1):
     print(f"\nВопрос {i}: {q[0]}")
-    print(f"A) {q[1]}\nB) {q[2]}\nC) {q[3]}")
+    print(f"{q[1]}\n{q[2]}\n{q[3]}")
     ans = input("Ваш ответ (A/B/C): ").upper()
     if ans == correct_answers[i-1]:
         print("Правильно")
