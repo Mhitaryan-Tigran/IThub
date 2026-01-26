@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notebook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="notebook.xsd">
+  <offices>
+    <office code="off001">Офис в центре города</office>
+    <office code="off002">Офис в деловом районе</office>
+    <office code="off003">Офис на окраине</office>
+  </offices>
+  
+  <person id="p001" office="off001">
+    <name>
+      <first>Иван</first>
+      <surname>Иванов</surname>
+    </name>
+    <address>
+      <city>Москва</city>
+      <street>ул. Красная площадь</street>
+      <index>101010</index>
+    </address>
+    <phones>
+      <phone type="work">495-11-22</phone>
+      <phone type="home">495-33-44</phone>
+      <phone>812-55-66</phone>
+    </phones>
+  </person>
+  
+  <person id="p002" office="off002">
+    <name>
+      <first>Мария</first>
+      <surname>Петрова</surname>
+    </name>
+    <address>
+      <city>Санкт-Петербург</city>
+      <street>пр. Невский</street>
+      <index>191186</index>
+    </address>
+    <phones>
+      <phone type="work">812-77-88</phone>
+    </phones>
+  </person>
+  
+  <person id="p003" office="off001">
+    <name>
+      <first>Петр</first>
+      <surname>Сидоров</surname>
+    </name>
+    <address>
+      <city>Казань</city>
+      <street>ул. Кремлевская</street>
+      <index>420111</index>
+    </address>
+    <phones>
+      <phone type="home">843-99-00</phone>
+      <phone type="work">843-12-34</phone>
+    </phones>
+  </person>
+  
+  <person id="p004" office="off003">
+    <name>
+      <first>Елена</first>
+      <surname>Смирнова</surname>
+    </name>
+    <address>
+      <city>Екатеринбург</city>
+      <street>ул. Ленина</street>
+      <index>620014</index>
+    </address>
+    <phones>
+    </phones>
+  </person>
+</notebook>
