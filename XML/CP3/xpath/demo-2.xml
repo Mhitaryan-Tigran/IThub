@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="demo-2.xsl" ?>
+
+<demo message="Мега документ">
+	<test message="hello, world">123</test>
+		
+	<!-- Этот пример показывает выборку других узлов -->	
+		
+	<test message="Привет МИР">987</test>
+</demo>

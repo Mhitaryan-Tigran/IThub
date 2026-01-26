@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeTable>
+ <offices>
+   <office code="КУ">
+       <name>Курская</name>
+       <address>Костомаровский пер., дом 3, стр 4, Москва, 105120</address>
+   </office>
+   <office code="ВТ">
+       <name>ВДНХ Техноград</name>
+       <address>пр-т Мира, 119 строение 63, Москва, 129223</address>
+   </office>
+ </offices>
+ <lessons>
+   <lesson no="1" complex="КУ">
+     <thema>Обзор XML технологий</thema>
+     <date>2021-01-19</date>
+     <time>10:00</time>    
+   </lesson>
+   <lesson no="2" complex="ВТ">
+     <thema>Введение в XML</thema>
+     <date>2021-01-23</date>
+     <time>17:20</time>
+   </lesson>
+   <lesson no="3" complex="ВТ">
+     <thema>Правила XML</thema>
+     <date>2021-01-26</date>
+     <time>15:30</time>    
+   </lesson>
+   <lesson no="4" complex="КУ">
+     <thema>Пространства имён XML</thema>
+     <date>2021-01-29</date>
+     <time>10:00</time>    
+   </lesson>  
+   <lesson no="5" complex="ВТ">
+     <thema>DTD: Описание структуры документа</thema>
+     <date>2021-02-03</date>
+     <time>17:20</time>    
+   </lesson>  
+   <lesson no="6" complex="ВТ">
+     <thema>DTD: определение сущностей</thema>
+     <date>2021-02-08</date>
+     <time>15:30</time>    
+   </lesson>  
+   <lesson no="7" complex="КУ">
+     <thema>Введение в XML Схемы</thema>
+     <date>2021-02-12</date>
+     <time>10:00</time>    
+   </lesson>  
+   <lesson no="8" complex="ВТ">
+     <thema>XML Схема: типы данных</thema>
+     <date>2021-02-17</date>
+     <time>17:20</time>    
+   </lesson>  
+   <lesson no="9" complex="ВТ">
+     <thema>Атрибуты типов</thema>
+     <date>2021-02-21</date>
+     <time>15:30</time>    
+   </lesson>  
+   <lesson no="10" complex="КУ">
+     <thema>XML Схема: Расширение сложных типов</thema>
+     <date>2021-02-25</date>
+     <time>10:00</time>    
+   </lesson>  
+ </lessons>
+</timeTable>
