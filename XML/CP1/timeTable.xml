@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE timeTable SYSTEM "timeTable.dtd">
+<timeTable>
+  <complexes>
+    <complex code="c001">
+      <name>Корпус А</name>
+      <address>ул. Ленина, д. 10</address>
+    </complex>
+    <complex code="c002">
+      <name>Корпус Б</name>
+      <address>ул. Пушкина, д. 25</address>
+    </complex>
+    <complex code="c003">
+      <name>Корпус В</name>
+      <address>ул. Толстого, д. 5</address>
+    </complex>
+  </complexes>
+  <lessons>
+    <lesson no="1" complex="c001">
+      <date>2026-01-26</date>
+      <time>09:00</time>
+    </lesson>
+    <lesson no="2" complex="c002">
+      <date>2026-01-26</date>
+      <time>10:30</time>
+    </lesson>
+    <lesson no="3" complex="c001">
+      <date>2026-01-26</date>
+      <time>12:00</time>
+    </lesson>
+    <lesson no="4" complex="c003">
+      <date>2026-01-27</date>
+      <time>14:00</time>
+    </lesson>
+    <lesson no="5" complex="c002">
+      <date>2026-01-27</date>
+      <time>15:30</time>
+    </lesson>
+  </lessons>
+</timeTable>
