@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.menu {
+    max-width: 300px;
+}
+
+.item {
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.item.has-children::before {
+    content: '► ';
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.item.has-children.expanded::before {
+    transform: rotate(90deg);
+}
+
+.item.no-children::before {
+    content: '✓ ';
+}
+
+.submenu {
+    display: none;
+    margin-left: 20px;
+}
+
+.submenu.visible {
+    display: block;
+}

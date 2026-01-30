@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню 3 уровня</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu" id="menu">
+        <div class="item has-children" data-level="1">
+            Каталог
+            <div class="submenu">
+                <div class="item has-children" data-level="2">
+                    Электроника
+                    <div class="submenu">
+                        <div class="item no-children" data-level="3">Смартфоны</div>
+                        <div class="item no-children" data-level="3">Ноутбуки</div>
+                        <div class="item no-children" data-level="3">Планшеты</div>
+                    </div>
+                </div>
+                <div class="item has-children" data-level="2">
+                    Одежда
+                    <div class="submenu">
+                        <div class="item no-children" data-level="3">Мужская мода</div>
+                        <div class="item no-children" data-level="3">Женская мода</div>
+                        <div class="item no-children" data-level="3">Спортивная одежда</div>
+                    </div>
+                </div>
+                <div class="item no-children" data-level="2">О компании</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
