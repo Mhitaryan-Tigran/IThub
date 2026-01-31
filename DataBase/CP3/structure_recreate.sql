@@ -1,25 +1,7 @@
--- ========================================
--- КТ № 3. PostgreSQL. Реализация таблиц
--- ПРОЦЕДУРА ПЕРЕСОЗДАНИЯ СТРУКТУРЫ БД
--- ========================================
--- Цель: Удалить всю существующую структуру и пересоздать её
--- Версия: 1.0.0.1
--- Дата создания: 2026-01-31
-
--- ========================================
--- СОЗДАНИЕ ПРОЦЕДУРЫ Structure_Re_Create()
--- ========================================
-
 CREATE OR REPLACE PROCEDURE Structure_Re_Create ()
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    -- ========================================
-    -- ЭТАП 1: ОТЗЫВ ПРАВ ДОСТУПА
-    -- Необходимо отозвать все права перед удалением объектов
-    -- ========================================
-    
-    -- Отзыв прав для rl_architect
     REVOKE USAGE, SELECT ON SEQUENCE department_id_department_seq FROM rl_architect;
     REVOKE USAGE, SELECT ON SEQUENCE bussines_role_id_bussines_role_seq FROM rl_architect;
     REVOKE USAGE, SELECT ON SEQUENCE discipline_id_discipline_seq FROM rl_architect;
@@ -27,12 +9,9 @@ BEGIN
     REVOKE USAGE, SELECT ON SEQUENCE dep_discipl_id_dep_discipl_seq FROM rl_architect;
     REVOKE USAGE, SELECT ON SEQUENCE workload_id_workload_seq FROM rl_architect;
     
-    -- Отзыв прав для rl_managersd
     REVOKE USAGE, SELECT ON SEQUENCE study_grpoup_id_study_grpoup_seq FROM rl_managersd;
     REVOKE USAGE, SELECT ON SEQUENCE distrib_grps_id_distrib_grps_seq FROM rl_managersd;
     REVOKE USAGE, SELECT ON SEQUENCE schedule_id_schedule_seq FROM rl_managersd;
-    
-    -- Отзыв прав для rl_administrator
     REVOKE USAGE, SELECT ON SEQUENCE department_id_department_seq FROM rl_administrator;
     REVOKE USAGE, SELECT ON SEQUENCE post_id_post_seq FROM rl_administrator;
     REVOKE USAGE, SELECT ON SEQUENCE territory_id_territory_seq FROM rl_administrator;
@@ -42,7 +21,6 @@ BEGIN
     REVOKE USAGE, SELECT ON SEQUENCE combination_id_combination_seq FROM rl_administrator;
     REVOKE USAGE, SELECT ON SEQUENCE schedule_id_schedule_seq FROM rl_administrator;
     
-    -- Отзыв табличных прав для rl_architect
     REVOKE SELECT, INSERT, UPDATE ON Department FROM rl_architect;
     REVOKE SELECT, INSERT, UPDATE ON Bussines_Role FROM rl_architect;
     REVOKE SELECT ON Post FROM rl_architect;
@@ -58,24 +36,20 @@ BEGIN
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Workload FROM rl_architect;
     REVOKE SELECT, UPDATE ON User_Profile FROM rl_architect;
     
-    -- Отзыв табличных прав для rl_teacher
     REVOKE SELECT, UPDATE ON User_Profile FROM rl_teacher;
     REVOKE SELECT ON Student FROM rl_teacher;
     REVOKE SELECT ON Schedule FROM rl_teacher;
     
-    -- Отзыв табличных прав для rl_student
     REVOKE SELECT, UPDATE ON User_Profile FROM rl_student;
     REVOKE SELECT, UPDATE ON Student FROM rl_student;
     REVOKE SELECT ON Schedule FROM rl_student;
     
-    -- Отзыв табличных прав для rl_managersd
     REVOKE SELECT, UPDATE ON User_Profile FROM rl_managersd;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Study_Grpoup FROM rl_managersd;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Student FROM rl_managersd;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Distrib_Grps FROM rl_managersd;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Schedule FROM rl_managersd;
     
-    -- Отзыв табличных прав для rl_administrator
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Department FROM rl_administrator;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Post FROM rl_administrator;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Territory FROM rl_administrator;
@@ -87,11 +61,6 @@ BEGIN
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Combination FROM rl_administrator;
     REVOKE SELECT, INSERT, UPDATE, DELETE ON Schedule FROM rl_administrator;
     REVOKE SELECT, INSERT, DELETE ON User_Profile FROM rl_administrator;
-    
-    -- ========================================
-    -- ЭТАП 2: УДАЛЕНИЕ ИНДЕКСОВ
-    -- Порядок: от зависимых к независимым
-    -- ========================================
     
     DROP INDEX IF EXISTS index_Pair_N_Schedule;
     DROP INDEX IF EXISTS index_D_W_Schedule;
@@ -142,11 +111,6 @@ BEGIN
     DROP INDEX IF EXISTS index_Name_Department;
     DROP INDEX IF EXISTS index_ID_Department;
     
-    -- ========================================
-    -- ЭТАП 3: УДАЛЕНИЕ ТАБЛИЦ
-    -- Порядок: от зависимых таблиц к независимым
-    -- ========================================
-    
     DROP TABLE IF EXISTS Schedule;
     DROP TABLE IF EXISTS Workload;
     DROP TABLE IF EXISTS Combination;
@@ -165,17 +129,7 @@ BEGIN
     DROP TABLE IF EXISTS Post;
     DROP TABLE IF EXISTS Department;
     
-    -- ========================================
-    -- ЭТАП 4: ПОВТОРНОЕ СОЗДАНИЕ СТРУКТУРЫ
-    -- Вызываем процедуру создания
-    -- ========================================
-    
     CALL Structure_Create();
     
-    RAISE NOTICE 'Структура БД успешно пересоздана!';
-
 END;
 $$;
-
--- Вывод информации о процедуре
-RAISE NOTICE 'Процедура Structure_Re_Create() создана';
