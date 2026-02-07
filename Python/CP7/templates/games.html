@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Favorite Games
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-5">My Favorite Games</h1>
+
+<div class="card-columns">
+  <div class="row">
+  {% for game in games %}
+    <div class="col-md-3">
+      <div class="card mb-3">
+          <div class="card-header fw-bold">{{ game.title }}</div>
+          <div class="card-body">
+              <p class="badge bg-primary text-wrap">{{ game.series.studio.name }}</p>
+              <p class="card-text">Series:
+              <strong>{{ game.series.title }}</strong></p>
+              <p class="card-text">Genre: {{ game.genre }}</p>
+              <p class="card-text">Rating: {{ game.rating }}/10</p>
+              <p class="card-text">Release: {{ game.year }}</p>
+          </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
